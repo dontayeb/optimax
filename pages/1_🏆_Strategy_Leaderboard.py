@@ -6,7 +6,14 @@ import os
 # Add parent directory to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from database import load_data_from_db
+import os
+
+# Use parquet version if database doesn't exist (production)
+if os.path.exists('market_data.db'):
+    from database import load_data_from_db
+else:
+    from database_parq import load_data_from_db
+
 from engine import SimulationEngine
 
 st.set_page_config(page_title="Strategy Leaderboard", page_icon="🏆", layout="wide")
