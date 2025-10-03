@@ -243,12 +243,13 @@ def calculate_exit_info(row):
     # For Golden Cross - use profit target
     if signal == 'Golden Cross (Buy)':
         target_price = price * (1 + profit_target_pct / 100)
-        return target_price, f"Target: ${target_price:.2f}", "Price Target"
+        return target_price, f"${target_price:.2f}", "Price Target"
 
-    # For RSI Oversold - use time-based exit
+    # For RSI Oversold - use profit target with time stop
     elif signal == 'RSI Oversold (Buy)':
+        target_price = price * (1 + profit_target_pct / 100)
         exit_date = date + pd.Timedelta(days=rsi_hold_days)
-        return None, exit_date.strftime('%Y-%m-%d'), "Time Exit"
+        return target_price, f"${target_price:.2f} or {exit_date.strftime('%Y-%m-%d')}", "Target or Time Stop"
 
     # For Seasonal - calculate sell month
     elif signal == 'Seasonal':
