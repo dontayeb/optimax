@@ -3,7 +3,7 @@
 venv/
 env/
 
-# Database (you'll need to recreate this on deployment)
+# Database - converted to parquet for deployment
 *.db
 
 # Python cache
@@ -21,3 +21,6 @@ screenshot_*.png
 
 # OS
 .DS_Store
+
+# Keep parquet data files for deployment
+!data/*.parquet
