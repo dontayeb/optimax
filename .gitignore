@@ -1,0 +1,23 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Database (you'll need to recreate this on deployment)
+*.db
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Debug files
+debug_*.html
+screenshot_*.png
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store
