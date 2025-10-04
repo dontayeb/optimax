@@ -4,3 +4,4 @@ numpy
 playwright
 beautifulsoup4
 pyarrow
+matplotlib
